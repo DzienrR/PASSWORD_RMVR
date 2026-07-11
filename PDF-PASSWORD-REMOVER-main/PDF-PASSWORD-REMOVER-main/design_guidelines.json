@@ -1,0 +1,100 @@
+{
+  "theme": "light",
+  "archetype": "Archetype 4 (Swiss & High-Contrast)",
+  "design_philosophy": "Function-first, stark contrasts, and absolute clarity. The design relies on grid structure, pure white spaces, solid black outlines, and a single electric blue accent for primary actions. No rounded corners, no gradients.",
+  "typography": {
+    "heading_font": "Cabinet Grotesk",
+    "body_font": "IBM Plex Sans",
+    "hierarchy": {
+      "h1": "text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-[#0A0A0A]",
+      "h2": "text-2xl md:text-3xl font-bold tracking-tight text-[#0A0A0A]",
+      "h3": "text-xl font-bold text-[#0A0A0A]",
+      "body": "text-base font-normal text-[#171717] leading-relaxed",
+      "label": "text-xs font-bold tracking-[0.2em] uppercase text-[#525252]"
+    },
+    "font_imports": [
+      "@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap');",
+      "@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,900&display=swap');"
+    ]
+  },
+  "colors": {
+    "background": {
+      "page": "#F5F5F5",
+      "surface": "#FFFFFF",
+      "surface_hover": "#F0F0F0"
+    },
+    "text": {
+      "primary": "#0A0A0A",
+      "secondary": "#525252",
+      "inverse": "#FFFFFF"
+    },
+    "border": {
+      "default": "#E5E5E5",
+      "strong": "#0A0A0A"
+    },
+    "accent": {
+      "primary": "#0000FF",
+      "primary_hover": "#0000CC",
+      "success": "#00C853",
+      "error": "#FF3B30",
+      "warning": "#FFD600"
+    }
+  },
+  "layout_and_spacing": {
+    "container_max_width": "max-w-5xl mx-auto",
+    "padding_scale": "p-4, p-6, p-8, p-12",
+    "corner_radius": "rounded-none",
+    "grid_system": "Use bento grid for layout. Example: A main large column for the dropzone and a side column for settings/info, or a wide center container.",
+    "borders": "1px solid #0A0A0A for primary structural elements, 1px solid #E5E5E5 for secondary dividers."
+  },
+  "components": {
+    "dropzone": {
+      "base_classes": "border-2 border-dashed border-[#0A0A0A] bg-[#FFFFFF] p-12 hover:bg-[#F9F9F9] transition-colors duration-200 cursor-pointer min-h-[300px] flex flex-col items-center justify-center gap-4 text-center relative",
+      "active_classes": "border-[#0000FF] bg-blue-50/50"
+    },
+    "buttons": {
+      "primary": "bg-[#0000FF] text-white px-6 py-3 font-semibold tracking-wide hover:bg-[#0000CC] transition-colors flex items-center justify-center gap-2 rounded-none",
+      "secondary": "bg-transparent text-[#0A0A0A] border border-[#0A0A0A] px-6 py-3 font-semibold hover:bg-[#0A0A0A] hover:text-white transition-colors flex items-center justify-center gap-2 rounded-none",
+      "ghost": "bg-transparent text-[#525252] hover:text-[#0A0A0A] hover:bg-black/5 px-4 py-2 transition-colors rounded-none"
+    },
+    "inputs": {
+      "text": "w-full border border-[#0A0A0A] bg-white px-4 py-3 text-base placeholder:text-[#A3A3A3] focus:outline-none focus:ring-2 focus:ring-[#0000FF] focus:border-transparent transition-all rounded-none",
+      "file_item": "border-b border-[#E5E5E5] last:border-0 p-4 flex items-center justify-between bg-white hover:bg-[#F9F9F9] transition-colors"
+    },
+    "tabs": {
+      "list": "flex border-b border-[#0A0A0A] w-full bg-transparent rounded-none p-0",
+      "trigger": "px-6 py-3 text-sm font-bold uppercase tracking-wider text-[#525252] hover:text-[#0A0A0A] border-b-2 border-transparent data-[state=active]:border-[#0000FF] data-[state=active]:text-[#0A0A0A] transition-all rounded-none"
+    }
+  },
+  "animations": {
+    "interactions": "Fast and snappy. 150ms-200ms ease-out for hovers.",
+    "list_transitions": "Staggered fade-in for file lists using Framer Motion.",
+    "loading": "Use an indeterminate progress bar with the electric blue accent for unlocking states."
+  },
+  "icons": {
+    "library": "lucide-react",
+    "usage": "Use stroke-width 1.5. Ensure icons in buttons are sized at 16px to 20px (w-4 h-4 to w-5 h-5)."
+  },
+  "media": {
+    "hero_background": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/1c075ab0-dd6d-48da-9129-078ab46f181b/images/1c9dec0651e4e0151de1d5c49cb92b952150251198489ae69b5b417b90aa6d57.png",
+      "description": "Abstract Swiss geometric design. Use this as a fixed background overlay (e.g., fixed inset-0 z-[-1] opacity-[0.03] object-cover w-full h-full mix-blend-multiply) to give the application a premium, editorial feel without distracting from the UI.",
+      "category": "background"
+    }
+  },
+  "testing": {
+    "requirements": "All interactive elements MUST include a data-testid attribute in kebab-case based on role (e.g., data-testid='upload-dropzone', data-testid='unlock-batch-button')."
+  },
+  "instructions_to_main_agent": [
+    "1. Setup a single page application with two main tabs/modes: 'Single File' and 'Batch Unlock'.",
+    "2. In Single Mode: Provide a prominent drag-and-drop zone. Once a file is dropped, display a file card with a password input and an 'Unlock' button. On success, show a 'Download' button.",
+    "3. In Batch Mode: Allow selecting multiple files. Show a list of all selected files. Provide a global password input field above the list and an 'Unlock All' button.",
+    "4. For Batch Mode results: Once files are unlocked, provide a 'Download ZIP' button for the entire batch, alongside individual download icons for each file.",
+    "5. Use Shadcn UI for standard elements (Tabs, Inputs, Buttons) but heavily customize them to remove rounded corners (`rounded-none`) and apply the high-contrast border styles specified in the components section.",
+    "6. Do not implement complex user auth or backend history. Assume processing happens directly in the browser (e.g., using `pdf-lib` + `jszip` for zipping) or via a simplified simulated API flow if no specific backend exists.",
+    "7. Strictly adhere to the typography: Cabinet Grotesk for headings, IBM Plex Sans for body text. Insert @import rules in the global CSS.",
+    "8. Maintain generous padding and use pure structural lines (Swiss Brutalist / Grid approach).",
+    "9. Include the abstract Swiss background image as a subtle, ultra-low-opacity fixed background to elevate the visual aesthetic."
+  ]
+}
+
