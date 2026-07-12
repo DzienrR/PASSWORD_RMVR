@@ -42,7 +42,7 @@ const Header = () => (
           <Unlock className="w-5 h-5 text-white" strokeWidth={2} />
         </div>
         <div className="leading-tight">
-          <div className="font-display text-lg tracking-tight">UNLOCK.PDF</div>
+          <div className="font-display text-lg tracking-tight">UNLOCK MY PDF</div>
           <div className="text-[10px] tracking-[0.25em] uppercase text-[#525252]">
             Password Removal Tool
           </div>
